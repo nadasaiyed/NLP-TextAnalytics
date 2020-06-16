@@ -40,9 +40,9 @@ def train(x_train, y_train,ngram,stopword,data_dir,pkl_name):
         pickle.dump(clf,f)
     return clf, count_vect, tfidf_transformer
    
-def mnb_uni(x_train,y_train,data_dir,alpha):
+def mnb_uni(x_train,y_train,data_dir):
     print("Training the model for unigrams with stopwords")
-    return train(x_train,y_train,(1,1),None,data_dir,'mnb_uni.pkl',alpha)
+    return train(x_train,y_train,(1,1),None,data_dir,'mnb_uni.pkl')
 
 def mnb_bi(x_train,y_train,data_dir):
     print("Training the model for bigrams with stopwords")
@@ -95,7 +95,7 @@ def main(data_dir):
     #         best_alpha=alpha
 
     #Train data for mnb_uni
-    clf, count_vect, tfidf_transformer = mnb_bi(x_train, y_train,data_dir)
+    clf, count_vect, tfidf_transformer = mnb_uni(x_train, y_train,data_dir)
     # validate for mnb_uni
     print('Validating')
     scores['mnb_uni_val'] = evaluate(x_val, y_val, clf, count_vect, tfidf_transformer)
