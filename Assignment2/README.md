@@ -21,11 +21,18 @@ and 83.6% on validation dataset
     its more accurate to classify it as negative review using the bigram. However some bigrams might belittle
     the effects of unigram words (adjectives) which might be important features. Hence, using unigram+bigram performs the best.
     
-    Stopwords removed 	text features	Accuracy (test set)
-    Yes             	Uni	            0.8039375
-    Yes	                Bi	            0.7827875
-    Yes	                Uni + Bi	    0.821425
-    No	                Uni	            0.809325
-    No	                Bi          	0.8244875
-    No              	Uni + Bi    	0.834925
+    (Stopwords removed) (text features) (Accuracy (test set))
+    
+    Yes Uni 0.8039375
+    
+    Yes Bi 0.7827875
+    
+    Yes Uni + Bi 0.821425
+    
+    No Uni 0.809325
+    
+    No Bi 0.8244875
+    
+    No Uni + Bi 0.834925
+    
 
