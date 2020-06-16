@@ -24,8 +24,8 @@ def load_data(data_dir):
     labels = read_csv(os.path.join(data_dir, 'labels.csv'))
     labels = [int(label) for label in labels]
     y_train = labels[:len(x_train)]
-    y_test = labels[len(x_train): len(x_train)+len(x_val)]
-    y_val = labels[-len(x_test):]
+    y_val = labels[len(x_train): len(x_train)+len(x_val)]
+    y_test = labels[-len(x_test):]
     return x_train, x_val, x_test, y_train, y_val, y_test
 
 
