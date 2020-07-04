@@ -13,7 +13,7 @@ An activation function takes into account the interaction effects in different p
 
 Dropout rate is a technique to randomly remove neurons so as to avoid overfitting. It is common for larger networks (more layers or more nodes) to more easily overfit the training data. Ideal dropout rate for hidden layer suggested is 0.5-0.8, hence we can see that accuracy with 0.7 is the best. A dropout with 0.7 effectively allows us to train and sample from a probability distribution of netwrok architectures. Dropping a neuron with 0.7 probability gets the highest variance for this distribution.
 
-After adding the l2 norm regularization (0.001), the accuracy for sigmoid increase to 81.127%, for relu 80.33% and for tanh 80.81. Regularization is also a similar technique to minimize the generalization error and prevent the model from becoming overfit. Thus, we see that we get a slight lower accuracy on train and val datasets as compared to test data sets after adding this regularization, which could be due to regularization preventing the model to learn more and more about the training dataset.
+After adding the l2 norm regularization (0.001), the accuracy for sigmoid increase to 81.085%, for relu 80.60% and for tanh 80.41%. Regularization is also a similar technique to minimize the generalization error and prevent the model from becoming overfit. Thus, we see that we get a slight lower accuracy on train and val datasets as compared to test data sets after adding this regularization, which could be due to regularization preventing the model to learn more and more about the training dataset.
 
 Thus, by combining the best dropout rates and adding l2 norm regularization, we get best accuracy for sigmoid 
 
