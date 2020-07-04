@@ -103,33 +103,33 @@ def main(data_dir):
     y_test = np.array(y_test)
     acc_scores={}
     dropout=0.7
-    layer = "sigmoid"
-    print("Building the model with ",layer," and dropout ",dropout)
-    model = Sequential()
-    model.add(Embedding(input_dim=max_vocab_size+3, output_dim=100, input_length=max_seq_len, weights = [embedding_matrix], trainable=True))
-    model.add(Flatten())
-    model.add(Dense(lstm_dim,activation=layer
-                           , kernel_regularizer=l2(0.01), bias_regularizer=l2(0.01)
-        ))
-    model.add(Dropout(dropout))
-    model.add(Dense(2,activation='softmax',name='output_layer'))
+    for layer in ['sigmoid','relu','tanh']:
+        print("Building the model with ",layer," and dropout ",dropout)
+        model = Sequential()
+        model.add(Embedding(input_dim=max_vocab_size+3, output_dim=100, input_length=max_seq_len, weights = [embedding_matrix], trainable=True))
+        model.add(Flatten())
+        model.add(Dense(lstm_dim,activation=layer
+                            , kernel_regularizer=l2(0.01), bias_regularizer=l2(0.01)
+            ))
+        model.add(Dropout(dropout))
+        model.add(Dense(2,activation='softmax',name='output_layer'))
 
-    print(model.summary())
+        print(model.summary())
 
-    print("Compiling the model")
-    model.compile(loss="sparse_categorical_crossentropy", optimizer="adam", metrics=["acc"])
-    
-    print("Fitting the model")
-    model.fit(X_train, y_train, batch_size=batch_size, epochs=10, validation_data=(X_val, y_val))
-    scores = model.evaluate(X_val, y_val)
-    print("%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
-    acc_scores[layer+"_val"+str(dropout)] = scores[1]*100
-    print("Evaluating model on test data")
-    scores = model.evaluate(X_test, y_test)
-    print("%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
-    acc_scores[layer+"_test"+str(dropout)] = scores[1]*100
-    # model.save(os.path.join(data_dir, 'processed/'+layer+str(dropout)) )
-    model.save(os.path.join(data_dir, 'processed/'+layer+'.model'))
+        print("Compiling the model")
+        model.compile(loss="sparse_categorical_crossentropy", optimizer="adam", metrics=["acc"])
+        
+        print("Fitting the model")
+        model.fit(X_train, y_train, batch_size=batch_size, epochs=10, validation_data=(X_val, y_val))
+        scores = model.evaluate(X_val, y_val)
+        print("%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
+        acc_scores[layer+"_val"+str(dropout)] = scores[1]*100
+        print("Evaluating model on test data")
+        scores = model.evaluate(X_test, y_test)
+        print("%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
+        acc_scores[layer+"_test"+str(dropout)] = scores[1]*100
+        # model.save(os.path.join(data_dir, 'processed/'+layer+str(dropout)) )
+        model.save(os.path.join(data_dir, 'processed/'+layer+'.model'))
     print(acc_scores)
 
 if __name__ == "__main__":
