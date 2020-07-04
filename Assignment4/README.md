@@ -1,7 +1,11 @@
 Dropout	Sigmoid	ReLu	Tanh
+
 0.3	79.339	79.03125	78.80375
+
 0.5	79.431	78.8025	79.01875
+
 0.7	79.735	79.3637	78.83375
+
 
 Considering 0.7 as the best dropout rate for hidden layer, we add l2 norm regularization for sigmoid and ReLu and for tanh we proceed with droupout rate as 0.5
 
