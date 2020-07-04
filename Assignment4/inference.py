@@ -45,6 +45,9 @@ def main(text_path, model_code):
     sample_vec = pad_sequences(sample_vec, padding='post', maxlen=maxlen)
     print(sample_vec)
 
-    print(model.predict(sample_vec))
+    predictions = model.predict(sample_vec)
+    for i in range(len(sample_text)):        
+        pred = 'neg' if (predictions[i][0]>predictions[i][1]) else 'pos'
+        print(sample_text[i], "-->",pred)
 if __name__ == '__main__':
     main(sys.argv[1], sys.argv[2])
