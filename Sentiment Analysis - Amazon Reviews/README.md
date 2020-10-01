@@ -1,1 +1,1 @@
-This project demonstrates use of simple ANNs to classify positive and negative sentiment of product reviews given on Amazon.com
+This project demonstrates use of simple ANNs to perform sentiment analysis i.e. classify product reviews given on Amazon.com as positive or negative.
