@@ -1,1 +1,1 @@
-This project demonstrates use of simple ANNs to perform sentiment analysis i.e. classify product reviews given on Amazon.com as positive or negative.
+This project demonstrates use of classic Naive Bayes algorithm and Artificial Neural Network to perform sentiment classification i.e. classify product reviews given on Amazon.com as positive or negative.
